@@ -66,7 +66,7 @@ class AnnonceController extends AbstractController
         return $this->jsonResponse($annonceur, 200);
     }
 
-    public function postAnnonce(){
+    public function postAnnonce($idCat = null){
 
         $cat_id = Categorie::select('*')
             ->where('id', '=', $this->request->getParam('cat_id'))
@@ -86,7 +86,10 @@ class AnnonceController extends AbstractController
             $annonce->code_postal = $this->request->getParam('codepostal');
             $annonce->prix = $this->request->getParam('prix');
             $annonce->passwd = $this->request->getParam('password');
-            $annonce->cat_id = $this->request->getParam('cat_id');
+            if($idCat == null)
+                $annonce->cat_id = $this->request->getParam('cat_id');
+            else
+                $annonce->cat_id = $idCat;
 
             $annonce->save();
 

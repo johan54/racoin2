@@ -12,7 +12,7 @@ use \racoin\common\model\Annonce;
 
 class AnnonceController extends AbstractController
 {
-    public function getUnvalidatedAnnounces()
+    public function getUnvalidatedAnnonces()
     {
         $template = $this->app->getContainer()->get('twig')->loadTemplate('unvalidated_announce.html');
 
@@ -21,7 +21,7 @@ class AnnonceController extends AbstractController
         return $template->render(array('annonces' => $annonces));
     }
 
-    public function getAnnounceById($id)
+    public function getAnnonceById($id)
     {
         $annonce = Annonce::select('id', 'titre', 'prix', 'date_online', 'ville', 'descriptif', 'mail_a', 'tel_a')
             ->where('status', '=', 2)
@@ -39,7 +39,7 @@ class AnnonceController extends AbstractController
         }
     }
 
-    public function validateAnnounceById($id)
+    public function validateAnnonceById($id)
     {
         $annonce = Annonce::find($id);
 
@@ -58,7 +58,7 @@ class AnnonceController extends AbstractController
         }
     }
 
-    public function deleteAnnounceById($id)
+    public function deleteAnnonceById($id)
     {
         $annonce = Annonce::find($id);
 

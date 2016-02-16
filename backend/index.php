@@ -20,14 +20,14 @@ $app->group('/', function () use ($app) {
     //Affichage de la liste des annonces non validées
     $app->get('unvalidated', function () use ($app) {
             $controller = new Controller\AnnonceController($app);
-            return $controller->getUnvalidatedAnnounces();
+            return $controller->getUnvalidatedAnnonces();
     });
 
     //Récupération d'une annonce
     $app->get('annonce/{id}', function ($req, $res, $args) use ($app) {
             $id = $args['id'];
             $controller = new Controller\AnnonceController($app);
-            return $controller->getAnnounceById($id);
+            return $controller->getAnnonceById($id);
     });
 });
 
@@ -36,7 +36,7 @@ $app->get('/annonce/{id}/validate', function ($req, $res, $args) use ($app) {
 
     $id = $args['id'];
     $controller = new Controller\AnnonceController($app);
-    return $controller->validateAnnounceById($id);
+    return $controller->validateAnnonceById($id);
 });
 
 $app->run();
