@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h2>Liste des annonces</h2>
+
+<a>pour valider un annonce veuillez cliquer dessus :</a>
+
+{% for annonce in annonces %}
+
+<a href="http://localhost/racoin2/backend/annonce/{{annonce.id}}/validate">
+    <div>
+        <ul class="annonces">
+            <li class="id">{{ annonce.id }}</li>
+            <li class="name">{{ annonce.titre }}</li>
+            <li class="price">{{ annonce.prix }}</li>
+        </ul>
+    </div>
+</a>
+{% endfor %}
+</body>
+</html>

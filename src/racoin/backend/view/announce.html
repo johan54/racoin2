@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+{% for a in annonce %}
+<h1>{{ a.titre }}</h1>
+<div class="announce">
+    <ul>
+        <li><b> Id : </b>{{ a.id }}</li>
+        <li><b>Prix : </b>{{ a.prix }}</li>
+        <li><b>Description : </b>{{ a.descriptif }}</li>
+        <li><b>Date : </b>{{ a.date_online }}</li>
+        <li><b>Ville : </b>{{ a.ville }}</li>
+        <li><b>Mail : </b>{{ a.mail_a }}</li>
+        <li><b>Tel : </b>{{ a.tel_a }}</li>
+    </ul>
+</div>
+{% endfor %}
+</body>
+</html>
